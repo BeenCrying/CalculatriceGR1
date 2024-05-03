@@ -1,5 +1,5 @@
 import javax.swing.*;
-import java.awt.event.KeyEvent;
+import java.awt.*;
 
 public class Calculatrice {
     public static void main(String[] args) {
@@ -8,8 +8,21 @@ public class Calculatrice {
         frame.setSize(500, 600);
         frame.setLocation(3200, 100);
 
+        frame.setJMenuBar(creerMenu());
+
+        JTextField resultField = new JTextField("0.0");
+        frame.add(resultField, BorderLayout.NORTH);
+        Font textFont = resultField.getFont();
+        resultField.setFont(textFont.deriveFont(40.0f));
+
+        JButton buttonBackspace = new JButton("Backspace");
+        frame.add(buttonBackspace);
+
+        frame.setVisible(true);
+    }
+
+    public static JMenuBar creerMenu() {
         JMenuBar menuBar = new JMenuBar();
-        frame.setJMenuBar(menuBar);
 
         JMenu menuEdit = new JMenu("Edit");
         menuEdit.add(new JMenuItem("Copy"));
@@ -38,6 +51,6 @@ public class Calculatrice {
         menuHelp.add(new JMenuItem("About Calculator"));
         menuBar.add(menuHelp);
 
-        frame.setVisible(true);
+        return menuBar;
     }
 }
