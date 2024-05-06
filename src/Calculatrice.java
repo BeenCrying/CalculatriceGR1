@@ -1,5 +1,4 @@
 import javax.swing.*;
-import javax.swing.border.Border;
 import java.awt.*;
 
 public class Calculatrice {
@@ -14,9 +13,10 @@ public class Calculatrice {
             frame.setLocation(Integer.parseInt(args[0]), Integer.parseInt(args[1]));
         }
 
-        frame.setJMenuBar(createMenuBar()); // Ajout de la barre de menu
-        frame.add(createResultField(), BorderLayout.NORTH); // Ajout de la barre des résultats
-        frame.add(createPanelMemory(), BorderLayout.WEST);
+        frame.setJMenuBar(createMenuBar()); // Ajout de la barre de menu (directement sous la barre de titre).
+        frame.add(createResultField(), BorderLayout.NORTH); // Ajout de la barre des résultats, en haut.
+        frame.add(createMemoryPanel(), BorderLayout.WEST); // Ajout du panneau de mémoire, à gauche.
+        frame.add(createMainPanel(), BorderLayout.CENTER); // Ajout du panneau principal, au centre.
 
         frame.setVisible(true); // Étape finale pour afficher la fenêtre graphique une fois qu'elle est prête.
     }
@@ -61,21 +61,44 @@ public class Calculatrice {
         return resultField;
     }
 
-    private static JPanel createPanelMemory() {
-        JPanel panelMemory = new JPanel(new GridLayout(5, 1, 10, 10));
+    private static JPanel createMemoryPanel() {
+        JPanel panel = new JPanel(new GridLayout(5, 1, 10, 10));
 
         JTextField memoryField = new JTextField();
         memoryField.setEditable(false);
         memoryField.setFont(memoryField.getFont().deriveFont(20.0f));
         memoryField.setHorizontalAlignment(JTextField.CENTER);
-        panelMemory.add(memoryField);
+        panel.add(memoryField);
 
-        panelMemory.add(createButton("MC"));
-        panelMemory.add(createButton("MR"));
-        panelMemory.add(createButton("MS"));
-        panelMemory.add(createButton("M+"));
+        panel.add(createButton("MC"));
+        panel.add(createButton("MR"));
+        panel.add(createButton("MS"));
+        panel.add(createButton("M+"));
 
-        return panelMemory;
+        return panel;
+    }
+
+    private static JPanel createMainPanel() {
+        JPanel panel = new JPanel();
+        panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
+        panel.add(createEditPanel());
+        panel.add(createNumberPanel());
+        return panel;
+    }
+
+    private static JPanel createEditPanel() {
+        JPanel panel = new JPanel(new GridLayout(1, 3, 10, 10));
+        panel.add(createButton("Backspace"));
+        panel.add(createButton("CE"));
+        panel.add(createButton("C"));
+        return panel;
+    }
+
+    private static JPanel createNumberPanel() {
+        JPanel panel = new JPanel(new GridLayout(4, 5, 10, 10));
+        for (int i = 0; i < 10; i++)
+            panel.add(createButton(String.valueOf(i)));
+        return panel;
     }
 
     private static JButton createButton(String text) {
