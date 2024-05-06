@@ -9,17 +9,29 @@ public class Calculatrice {
         frame.setLocationRelativeTo(null);
         frame.setJMenuBar(createMenu());
 
+        JTextField textField = new JTextField("0.0", 0);
+        textField.setPreferredSize(new Dimension(380, 50));
+        textField.setFont(new Font("Arial", Font.PLAIN, 24));
+        textField.setHorizontalAlignment(JTextField.RIGHT);
+
         JPanel buttonPanel = new JPanel(new BorderLayout());
         JPanel functionPanel = new JPanel(new GridLayout(1, 3));
         functionPanel.add(new JButton("Backspace"));
         functionPanel.add(new JButton("CE"));
         functionPanel.add(new JButton("C"));
 
+        JPanel memoryPanel = new JPanel(new GridLayout(4, 1));
+        memoryPanel.add(new JButton("MC"));
+        memoryPanel.add(new JButton("MR"));
+        memoryPanel.add(new JButton("MS"));
+        memoryPanel.add(new JButton("M+"));
+
+        buttonPanel.add(memoryPanel, BorderLayout.WEST);
         buttonPanel.add(functionPanel, BorderLayout.NORTH);
         buttonPanel.add(createNumberPanel(), BorderLayout.CENTER);
 
         frame.add(buttonPanel, BorderLayout.CENTER);
-        frame.add(new JTextField("0.0", 0), BorderLayout.NORTH);
+        frame.add(textField, BorderLayout.NORTH);
         frame.setVisible(true);
     }
 
