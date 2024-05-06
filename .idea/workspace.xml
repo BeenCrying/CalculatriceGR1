@@ -4,7 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5051ec26-b258-488f-aa49-c9b014b2f453" name="Changes" comment="Création de la classe Calculatrice et d'un JFrame vide.">
+    <list default="true" id="5051ec26-b258-488f-aa49-c9b014b2f453" name="Changes" comment="Remaniement de la création du menu pour le placer dans une méthode séparée.">
+      <change afterPath="$PROJECT_DIR$/.idea/runConfigurations/Main.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Calculatrice.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Calculatrice.java" afterDir="false" />
     </list>
@@ -32,16 +33,24 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "settings.editor.selected.configurable": "preferences.lookFeel"
   }
-}</component>
+}]]></component>
+  <component name="RunManager" selected="Application.Main (démo en classe)">
+    <list>
+      <item itemvalue="Application.Main" />
+      <item itemvalue="Application.Main (démo en classe)" />
+    </list>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Création de la classe Calculatrice et d'un JFrame vide." />
-    <option name="LAST_COMMIT_MESSAGE" value="Création de la classe Calculatrice et d'un JFrame vide." />
+    <MESSAGE value="Remaniement de la création du menu pour le placer dans une méthode séparée." />
+    <option name="LAST_COMMIT_MESSAGE" value="Remaniement de la création du menu pour le placer dans une méthode séparée." />
   </component>
 </project>

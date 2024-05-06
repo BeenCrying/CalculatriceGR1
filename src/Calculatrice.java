@@ -1,12 +1,15 @@
 import javax.swing.*;
-import java.awt.event.KeyEvent;
 
 public class Calculatrice {
     public static void main(String[] args) {
         JFrame frame = new JFrame("Calculatrice");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); // Indique à Swing d'arrêter le programme quand on ferme la fenêtre.
         frame.setSize(500, 600); // Impose la taille initiale de la fenêtre (elle peut quand même être redimensionnée).
-        frame.setLocation(3200, 100); // Place la fenêtre à un endroit spécifique de l'écran (pour les démonstrations en classe).
+
+        if (args.length == 2) {
+            // Place la fenêtre à un endroit spécifique de l'écran (utile pour les démonstrations en classe).
+            frame.setLocation(Integer.parseInt(args[0]), Integer.parseInt(args[1]));
+        }
 
         // Ajout de la barre de menu
         frame.setJMenuBar(createMenuBar());
