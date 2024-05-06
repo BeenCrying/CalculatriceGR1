@@ -1,4 +1,5 @@
 import javax.swing.*;
+import javax.swing.border.EmptyBorder;
 import java.awt.*;
 
 public class Calculatrice {
@@ -63,6 +64,7 @@ public class Calculatrice {
 
     private static JPanel createMemoryPanel() {
         JPanel panel = new JPanel(new GridLayout(5, 1, 10, 10));
+        panel.setBorder(new EmptyBorder(10, 10, 10, 10));
 
         JTextField memoryField = new JTextField();
         memoryField.setEditable(false);
@@ -79,11 +81,17 @@ public class Calculatrice {
     }
 
     private static JPanel createMainPanel() {
-        JPanel panel = new JPanel();
-        panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
-        panel.add(createEditPanel());
-        panel.add(createNumberPanel());
-        return panel;
+        JPanel mainPanel = new JPanel();
+        mainPanel.setLayout(new BoxLayout(mainPanel, BoxLayout.Y_AXIS));
+        mainPanel.setBorder(new EmptyBorder(10, 10, 10, 10));
+
+        JPanel editPanel = createEditPanel();
+        editPanel.setMaximumSize(new Dimension(1000, 50));
+        editPanel.setBorder(new EmptyBorder(0, 0, 20, 0));
+
+        mainPanel.add(editPanel);
+        mainPanel.add(createNumberPanel());
+        return mainPanel;
     }
 
     private static JPanel createEditPanel() {
