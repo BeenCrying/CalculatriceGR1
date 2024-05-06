@@ -1,4 +1,5 @@
 import javax.swing.*;
+import javax.swing.border.Border;
 import java.awt.*;
 
 public class Calculatrice {
@@ -15,6 +16,7 @@ public class Calculatrice {
 
         frame.setJMenuBar(createMenuBar()); // Ajout de la barre de menu
         frame.add(createResultField(), BorderLayout.NORTH); // Ajout de la barre des résultats
+        frame.add(createPanelMemory(), BorderLayout.WEST);
 
         frame.setVisible(true); // Étape finale pour afficher la fenêtre graphique une fois qu'elle est prête.
     }
@@ -57,5 +59,28 @@ public class Calculatrice {
         resultField.setFont(resultField.getFont().deriveFont(40.0f));
         resultField.setHorizontalAlignment(JTextField.RIGHT);
         return resultField;
+    }
+
+    private static JPanel createPanelMemory() {
+        JPanel panelMemory = new JPanel(new GridLayout(5, 1, 10, 10));
+
+        JTextField memoryField = new JTextField();
+        memoryField.setEditable(false);
+        memoryField.setFont(memoryField.getFont().deriveFont(20.0f));
+        memoryField.setHorizontalAlignment(JTextField.CENTER);
+        panelMemory.add(memoryField);
+
+        panelMemory.add(createButton("MC"));
+        panelMemory.add(createButton("MR"));
+        panelMemory.add(createButton("MS"));
+        panelMemory.add(createButton("M+"));
+
+        return panelMemory;
+    }
+
+    private static JButton createButton(String text) {
+        JButton button = new JButton(text);
+        button.setForeground(Color.BLUE);
+        return button;
     }
 }

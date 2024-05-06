@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5051ec26-b258-488f-aa49-c9b014b2f453" name="Changes" comment="Ajout d'une configuration IntelliJ pour placer la fenêtre sur l'écran du projecteur (en classe).">
+    <list default="true" id="5051ec26-b258-488f-aa49-c9b014b2f453" name="Changes" comment="Ajout de la barre des résultats.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Calculatrice.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Calculatrice.java" afterDir="false" />
     </list>
@@ -50,6 +50,7 @@
     <MESSAGE value="Création de la classe Calculatrice et d'un JFrame vide." />
     <MESSAGE value="Remaniement de la création du menu pour le placer dans une méthode séparée." />
     <MESSAGE value="Ajout d'une configuration IntelliJ pour placer la fenêtre sur l'écran du projecteur (en classe)." />
-    <option name="LAST_COMMIT_MESSAGE" value="Ajout d'une configuration IntelliJ pour placer la fenêtre sur l'écran du projecteur (en classe)." />
+    <MESSAGE value="Ajout de la barre des résultats." />
+    <option name="LAST_COMMIT_MESSAGE" value="Ajout de la barre des résultats." />
   </component>
 </project>
