@@ -4,8 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5051ec26-b258-488f-aa49-c9b014b2f453" name="Changes" comment="Remaniement de la création du menu pour le placer dans une méthode séparée.">
-      <change afterPath="$PROJECT_DIR$/.idea/runConfigurations/Main.xml" afterDir="false" />
+    <list default="true" id="5051ec26-b258-488f-aa49-c9b014b2f453" name="Changes" comment="Ajout d'une configuration IntelliJ pour placer la fenêtre sur l'écran du projecteur (en classe).">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Calculatrice.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Calculatrice.java" afterDir="false" />
     </list>
@@ -37,8 +36,7 @@
   "keyToString": {
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "settings.editor.selected.configurable": "preferences.lookFeel"
+    "settings.editor.selected.configurable": "preferences.keymap"
   }
 }]]></component>
   <component name="RunManager" selected="Application.Main (démo en classe)">
@@ -51,6 +49,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Création de la classe Calculatrice et d'un JFrame vide." />
     <MESSAGE value="Remaniement de la création du menu pour le placer dans une méthode séparée." />
-    <option name="LAST_COMMIT_MESSAGE" value="Remaniement de la création du menu pour le placer dans une méthode séparée." />
+    <MESSAGE value="Ajout d'une configuration IntelliJ pour placer la fenêtre sur l'écran du projecteur (en classe)." />
+    <option name="LAST_COMMIT_MESSAGE" value="Ajout d'une configuration IntelliJ pour placer la fenêtre sur l'écran du projecteur (en classe)." />
   </component>
 </project>

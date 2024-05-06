@@ -1,7 +1,9 @@
 import javax.swing.*;
+import java.awt.*;
 
 public class Calculatrice {
     public static void main(String[] args) {
+        // Création de la fenêtre principale (la "racine graphique").
         JFrame frame = new JFrame("Calculatrice");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); // Indique à Swing d'arrêter le programme quand on ferme la fenêtre.
         frame.setSize(500, 600); // Impose la taille initiale de la fenêtre (elle peut quand même être redimensionnée).
@@ -11,8 +13,8 @@ public class Calculatrice {
             frame.setLocation(Integer.parseInt(args[0]), Integer.parseInt(args[1]));
         }
 
-        // Ajout de la barre de menu
-        frame.setJMenuBar(createMenuBar());
+        frame.setJMenuBar(createMenuBar()); // Ajout de la barre de menu
+        frame.add(createResultField(), BorderLayout.NORTH); // Ajout de la barre des résultats
 
         frame.setVisible(true); // Étape finale pour afficher la fenêtre graphique une fois qu'elle est prête.
     }
@@ -48,5 +50,12 @@ public class Calculatrice {
         menuBar.add(menuHelp);
 
         return menuBar;
+    }
+
+    private static JTextField createResultField() {
+        JTextField resultField = new JTextField("0.0");
+        resultField.setFont(resultField.getFont().deriveFont(40.0f));
+        resultField.setHorizontalAlignment(JTextField.RIGHT);
+        return resultField;
     }
 }
