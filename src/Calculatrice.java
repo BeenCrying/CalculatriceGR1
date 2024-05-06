@@ -3,50 +3,59 @@ import java.awt.*;
 
 public class Calculatrice {
     public static void main(String[] args) {
+        // Création de la fenêtre principale (la "racine graphique").
         JFrame frame = new JFrame("Calculatrice");
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setSize(380, 600);
-        frame.setLocationRelativeTo(null);
-        frame.setJMenuBar(createMenu());
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); // Indique à Swing d'arrêter le programme quand on ferme la fenêtre.
+        frame.setSize(500, 600); // Impose la taille initiale de la fenêtre (elle peut quand même être redimensionnée).
 
-        JPanel buttonPanel = new JPanel(new BorderLayout());
-        JPanel functionPanel = new JPanel(new GridLayout(1, 3));
-        functionPanel.add(new JButton("Backspace"));
-        functionPanel.add(new JButton("CE"));
-        functionPanel.add(new JButton("C"));
+        if (args.length == 2) {
+            // Place la fenêtre à un endroit spécifique de l'écran (utile pour les démonstrations en classe).
+            frame.setLocation(Integer.parseInt(args[0]), Integer.parseInt(args[1]));
+        }
 
-        buttonPanel.add(functionPanel, BorderLayout.NORTH);
-        buttonPanel.add(createNumberPanel(), BorderLayout.CENTER);
+        frame.setJMenuBar(createMenuBar()); // Ajout de la barre de menu
+        frame.add(createResultField(), BorderLayout.NORTH); // Ajout de la barre des résultats
 
-        frame.add(buttonPanel, BorderLayout.CENTER);
-        frame.add(new JTextField("0.0", 0), BorderLayout.NORTH);
-        frame.setVisible(true);
+        frame.setVisible(true); // Étape finale pour afficher la fenêtre graphique une fois qu'elle est prête.
     }
 
-    public static JMenuBar createMenu() {
+    private static JMenuBar createMenuBar() {
         JMenuBar menuBar = new JMenuBar();
-        menuBar.add(createMenu("Edit", "Copy", "Paste"));
-        menuBar.add(createMenu("View", "Standard", "Scientific", "Digit Grouping"));
-        menuBar.add(createMenu("Help", "Help Topics", "About Calculator"));
+
+        JMenu menuEdit = new JMenu("Edit");
+        menuEdit.add(new JMenuItem("Copy"));
+        menuEdit.add(new JMenuItem("Paste"));
+        menuBar.add(menuEdit);
+
+        JMenu menuView = new JMenu("View");
+        ButtonGroup groupeMode = new ButtonGroup();
+
+        JMenuItem itemStandard = new JRadioButtonMenuItem("Standard");
+        itemStandard.setSelected(true);
+        groupeMode.add(itemStandard);
+        menuView.add(itemStandard);
+
+        JMenuItem itemScientific = new JRadioButtonMenuItem("Scientific");
+        groupeMode.add(itemScientific);
+        menuView.add(itemScientific);
+
+        menuView.addSeparator();
+        JMenuItem itemDigits = new JCheckBoxMenuItem("Digit Grouping");
+        menuView.add(itemDigits);
+        menuBar.add(menuView);
+
+        JMenu menuHelp = new JMenu("Help");
+        menuHelp.add(new JMenuItem("Help Topics"));
+        menuHelp.add(new JMenuItem("About Calculator"));
+        menuBar.add(menuHelp);
+
         return menuBar;
     }
 
-    public static JMenu createMenu(String title, String... items) {
-        JMenu menu = new JMenu(title);
-        for (String item : items) {
-            menu.add(new JMenuItem(item));
-        }
-        return menu;
-    }
-
-    public static JPanel createNumberPanel() {
-        JPanel numberPanel = new JPanel(new GridLayout(4, 3));
-        for (int i = 7; i >= 1; i -= 3) {
-            for (int j = 0; j < 3; j++) {
-                numberPanel.add(new JButton(String.valueOf(i + j)));
-            }
-        }
-        numberPanel.add(new JButton("0"));
-        return numberPanel;
+    private static JTextField createResultField() {
+        JTextField resultField = new JTextField("0.0");
+        resultField.setFont(resultField.getFont().deriveFont(40.0f));
+        resultField.setHorizontalAlignment(JTextField.RIGHT);
+        return resultField;
     }
 }
