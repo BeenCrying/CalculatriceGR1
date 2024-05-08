@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5051ec26-b258-488f-aa49-c9b014b2f453" name="Changes" comment="Ajustements mineurs pour améliorer le placement des composants.">
+    <list default="true" id="5051ec26-b258-488f-aa49-c9b014b2f453" name="Changes" comment="Ajout des boutons manquants.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Calculatrice.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Calculatrice.java" afterDir="false" />
     </list>
@@ -21,6 +21,11 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="master" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="MarkdownSettingsMigration">
@@ -39,7 +44,7 @@
     "settings.editor.selected.configurable": "preferences.keymap"
   }
 }]]></component>
-  <component name="RunManager" selected="Application.Main">
+  <component name="RunManager" selected="Application.Main (démo en classe)">
     <list>
       <item itemvalue="Application.Main" />
       <item itemvalue="Application.Main (démo en classe)" />
@@ -54,6 +59,7 @@
     <MESSAGE value="Ajout du panneau de gauche." />
     <MESSAGE value="Ajout du panneau central." />
     <MESSAGE value="Ajustements mineurs pour améliorer le placement des composants." />
-    <option name="LAST_COMMIT_MESSAGE" value="Ajustements mineurs pour améliorer le placement des composants." />
+    <MESSAGE value="Ajout des boutons manquants." />
+    <option name="LAST_COMMIT_MESSAGE" value="Ajout des boutons manquants." />
   </component>
 </project>

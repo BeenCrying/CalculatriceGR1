@@ -1,5 +1,6 @@
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
+import javax.swing.border.LineBorder;
 import java.awt.*;
 
 public class Calculatrice {
@@ -63,8 +64,7 @@ public class Calculatrice {
     }
 
     private static JPanel createMemoryPanel() {
-        JPanel panel = new JPanel(new GridLayout(5, 1, 10, 10));
-        panel.setBorder(new EmptyBorder(10, 10, 10, 10));
+        JPanel panel = createPanel(new GridLayout(5, 1, 10, 10));
 
         JTextField memoryField = new JTextField();
         memoryField.setEditable(false);
@@ -81,13 +81,11 @@ public class Calculatrice {
     }
 
     private static JPanel createMainPanel() {
-        JPanel mainPanel = new JPanel();
+        JPanel mainPanel = new JPanel(); // Le BoxLayout est spécial et doit être créé après le panel.
         mainPanel.setLayout(new BoxLayout(mainPanel, BoxLayout.Y_AXIS));
-        mainPanel.setBorder(new EmptyBorder(10, 10, 10, 10));
 
         JPanel editPanel = createEditPanel();
-        editPanel.setMaximumSize(new Dimension(1000, 50));
-        editPanel.setBorder(new EmptyBorder(0, 0, 20, 0));
+        editPanel.setMaximumSize(new Dimension(1000, 0));
 
         mainPanel.add(editPanel);
         mainPanel.add(createNumberPanel());
@@ -95,10 +93,10 @@ public class Calculatrice {
     }
 
     private static JPanel createEditPanel() {
-        JPanel panel = new JPanel(new GridLayout(1, 3, 10, 10));
-        panel.add(createButton("Backspace"));
-        panel.add(createButton("CE"));
-        panel.add(createButton("C"));
+        JPanel panel = createPanel(new GridLayout(1, 3, 10, 10));
+        panel.add(createButton("Backspace", Color.RED));
+        panel.add(createButton("CE", Color.RED));
+        panel.add(createButton("C", Color.RED));
         return panel;
     }
 
@@ -110,7 +108,7 @@ public class Calculatrice {
                 "0", "+/-", ".", "+", "="
         };
 
-        JPanel panel = new JPanel(new GridLayout(4, 5, 10, 10));
+        JPanel panel = createPanel(new GridLayout(4, 5, 10, 10), Color.RED);
         for (String label : labels)
             panel.add(createButton(label));
         return panel;
@@ -122,9 +120,19 @@ public class Calculatrice {
         return panel;
     }
 
+    private static JPanel createPanel(LayoutManager layout, Color color) {
+        JPanel panel = new JPanel(layout);
+        panel.setBorder(new LineBorder(color, 10));
+        return panel;
+    }
+
     private static JButton createButton(String text) {
+        return createButton(text, Color.BLUE);
+    }
+
+    private static JButton createButton(String text, Color color) {
         JButton button = new JButton(text);
-        button.setForeground(Color.BLUE);
+        button.setForeground(color);
         return button;
     }
 }
