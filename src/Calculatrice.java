@@ -7,7 +7,7 @@ public class Calculatrice {
         // Création de la fenêtre principale (la "racine graphique").
         JFrame frame = new JFrame("Calculatrice");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); // Indique à Swing d'arrêter le programme quand on ferme la fenêtre.
-        frame.setSize(500, 600); // Impose la taille initiale de la fenêtre (elle peut quand même être redimensionnée).
+        frame.setSize(500, 400); // Impose la taille initiale de la fenêtre (elle peut quand même être redimensionnée).
 
         if (args.length == 2) {
             // Place la fenêtre à un endroit spécifique de l'écran (utile pour les démonstrations en classe).
@@ -103,9 +103,22 @@ public class Calculatrice {
     }
 
     private static JPanel createNumberPanel() {
+        String[] labels = {
+                "7", "8", "9", "/", "sqrt",
+                "4", "5", "6", "*", "%",
+                "1", "2", "3", "-", "1/x",
+                "0", "+/-", ".", "+", "="
+        };
+
         JPanel panel = new JPanel(new GridLayout(4, 5, 10, 10));
-        for (int i = 0; i < 10; i++)
-            panel.add(createButton(String.valueOf(i)));
+        for (String label : labels)
+            panel.add(createButton(label));
+        return panel;
+    }
+
+    private static JPanel createPanel(LayoutManager layout) {
+        JPanel panel = new JPanel(layout);
+        panel.setBorder(new EmptyBorder(10, 10, 10, 10));
         return panel;
     }
 
