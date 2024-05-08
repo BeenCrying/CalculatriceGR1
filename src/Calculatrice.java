@@ -103,9 +103,17 @@ public class Calculatrice {
     }
 
     private static JPanel createNumberPanel() {
-        JPanel panel = new JPanel(new GridLayout(4, 5, 10, 10));
-        for (int i = 0; i < 10; i++)
-            panel.add(createButton(String.valueOf(i)));
+        JPanel panel = new JPanel(new GridBagLayout());
+        GridBagConstraints gbc = new GridBagConstraints();
+        gbc.fill = GridBagConstraints.BOTH;
+        gbc.weightx = gbc.weighty = 1.0;
+        String[][] buttonOrder = {{"7", "8", "9", "/", "sqrt"}, {"4", "5", "6", "*", "%"}, {"1", "2", "3", "-", "1/x"}, {"0", "+/-", ".", "+", "="}};
+        for (int i = 0; i < buttonOrder.length; i++)
+            for (int j = 0; j < buttonOrder[i].length; j++) {
+                gbc.gridx = j;
+                gbc.gridy = i;
+                panel.add(createButton(buttonOrder[i][j]), gbc);
+            }
         return panel;
     }
 
